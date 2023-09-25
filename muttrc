@@ -1,0 +1,25 @@
+#source ~/Nextcloud/mutt/colours2
+source ~/Nextcloud/mutt/defaults
+source ~/Nextcloud/mutt/aliases
+
+bind index "^" imap-fetch-mail
+set realname    = 'Real Name'
+set from        = "first last <user@domain.name>"
+set use_from    = yes
+set hostname    = 127.0.0.1
+set imap_user   = username
+set imap_pass   = password
+set smtp_pass   = $imap_pass
+set folder      = imap://$imap_user:$imap_pass@127.0.0.1:1143/
+set smtp_url    = smtp://$imap_user:$smtp_pass@127.0.0.1:1025
+set spoolfile   = +INBOX
+set record      = "=Sent"
+set postponed   = "=Folders/Drafts_Folder"
+
+set message_cachedir = "~/.cache/mutt"
+set header_cache = "~/.cache/mutt"
+
+set imap_keepalive  = 30
+set imap_list_subscribed    = yes
+#set imap_poll_timeout       = 0
+#set timeout                 = 120

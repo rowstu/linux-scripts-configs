@@ -1,0 +1,23 @@
+# examples:
+
+# for old hosts via command line
+# ssh -oKexAlgorithms=+diffie-hellman-group1-sha1
+
+
+ServerAliveInterval 120
+IdentitiesOnly yes
+IdentityFile /home/username/.ssh/id_rsa
+
+Host vboxsrv1
+    Hostname hostname
+    User username
+
+Host sha1-based-host
+    Hostname sha1-based-host
+    User username
+    KexAlgorithms +diffie-hellman-group1-sha1
+
+Host typical
+    Hostname hostname
+    IdentityFile ~/.ssh/id_rsa
+    User username

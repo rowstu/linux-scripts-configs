@@ -1,0 +1,35 @@
+#dirty hack to save deleted msgs in Trash. Is there a better way?
+#macro index ^t "s=Trash\n" "move message to trash"
+#set index_format    =  "%4C %Z %{%b %d} %-15.15L (%?l?%4l&%4c?) %s"
+#set index_format    = "%4C %Z %{%b %d %Y %R} %-15.15L (%4l) %s"
+#set index_format    = "%4C %Z %[!%b %e at %I:%M %p] %.20n %s%* -- (%P)"
+set index_format    = "%4C %Z %[%b %d %Y %R] %-15.15L (%4l) %s"
+#set editor      = "vim -c 'set expandtab textwidth=72| normal }j'"
+set editor 	= vim
+set sort_alias      = alias
+set reverse_alias   = yes
+#set mailcap_path    = ~/.mailcap
+unset imap_passive
+set sort_aux        = last-date-received
+set sleep_time      = 0
+set header_cache     = ~/.cache/mutt-header-cache
+set message_cachedir = ~/.cache/mutt
+set net_inc         = 5
+set mail_check      = 60
+set imap_keepalive  = 60
+set fcc_attach
+set forward_format  = "Fwd: %s"
+set include
+set forward_quote
+set mime_forward=yes 
+#set mime_forward_rest=yes
+set text_flowed     = yes
+#alternative_order text/plain text/enriched text/html
+#auto_view text/html
+mime_lookup application/octet-stream
+bind index "^" imap-fetch-mail
+unset record
+set sort=date
+set tmpdir="/tmp"
+set pager_context=3
+set pager_stop=yes
